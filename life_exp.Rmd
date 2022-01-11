@@ -1,0 +1,29 @@
+---
+title: "life_ex["
+author: "Tyler Halliwell, Anthony Orsino, Josephine Decker"
+date: "1/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r}
+library(tidyverse)
+library(gapminder)
+data("gapminder_unfiltered")
+```
+
+#Analysis
+
+
+```{r}
+gapminder_unfiltered %>%
+  group_by(year) %>%
+  filter(lifeExp == max(lifeExp))%>%
+  ungroup() %>%
+  select(year, country, lifeExp) %>%
+  arrange(year)-> sumdat
+```
